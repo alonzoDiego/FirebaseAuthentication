@@ -1,0 +1,21 @@
+<div class="container" *ngIf="user$ | async as user; else loading">
+  <mat-card class="example-card" style="text-align: center;">
+    <mat-card-title class="style title">{{messageService.messageTitle}}</mat-card-title>
+    <mat-card-subtitle class="style subtitle">{{messageService.messageSubtitle}}</mat-card-subtitle>
+    <img mat-card-image src="https://logos-marcas.com/wp-content/uploads/2020/11/Gmail-Logo.png" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+        We have sent a confirmation email to <strong>{{user?.email}}</strong>
+      </p>
+      <p>
+        Please check your email and click on the link to verify your email address.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="onSendEmail()">Resend verification email</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+<ng-template #loading>
+  Loading...
+</ng-template>
